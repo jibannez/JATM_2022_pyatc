@@ -1,0 +1,212 @@
+<!--
+      @project  : ATC-Lab
+
+      @file     : $Test 7$
+      @author   : $Jorge Ibáñez Gijón$
+      @version  : $Name$ ( $Revision$ )
+      @date     : $20200915$
+      @state    : $State$
+
+      $Log$
+
+      @copyright  : 2022 Jorge Ibáñez Gijón. Departamento de Psicología Básica. Universidad Autónoma de Madrid.
+-->
+
+<atc:experiment 
+	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' 
+	xmlns:atc='http://www.humanfactors.uq.edu.au/atc/2006/atc-ns' 
+	xsi:schemaLocation='http://www.humanfactors.uq.edu.au/atc/2006/atc-ns atc_lab-2006-05.xsd' 
+	atc:idx='selina_001'>
+
+	<!--
+      ****************************************
+      ****  Configuration                *****
+      ****************************************
+-->
+
+	<atc:config>
+
+		<!-- Units -->
+
+		<atc:units>
+			<atc:input>NM-FT</atc:input>
+		</atc:units>
+
+		<!-- Aircraft Performance Data -->
+
+		<atc:aircraftParam atc:idx='SF34' />
+		<atc:aircraftParam atc:idx='A320' />
+
+		<!-- Instructions -->
+
+		<atc:instruction atc:idx='thanks'>
+			<atc:text>
+				<![CDATA[<qt>
+		<center>
+		<table width="60%" bgcolor="darkCyan" border="0" cellspacing="0" cellpadding="50">
+		<tr><td align="left"><font face="verdana" size="1">
+		<p align="center"><font size="+1">Thank you for your participation.</font></p>
+		<p align="center"><font color="red"><b>Please tell your experimenter that you have finished<b></font></p>
+		</font></td></tr>
+		</table>
+		</center>
+		</qt>]]>
+			</atc:text>
+		</atc:instruction>
+
+	</atc:config>
+
+	<!--
+      ****************************************
+      ****  Data Block                   *****
+      ****************************************
+ -->
+
+	<atc:data>
+
+		<!--  Experimental Parameters  -->
+
+		<atc:param atc:idx='default'>
+
+			<atc:update_rate>1000</atc:update_rate>
+			<atc:scenario_tester>1</atc:scenario_tester>
+
+			<atc:cs_none_colour>black</atc:cs_none_colour>
+			<atc:cs_annonced_colour>blue</atc:cs_annonced_colour>
+			<atc:cs_accepted_colour>darkGreen</atc:cs_accepted_colour>
+			<atc:cs_handoff_colour>white</atc:cs_handoff_colour>
+			<atc:cs_nomore_colour>black</atc:cs_nomore_colour>
+			<atc:cs_overout_colour>#FF8000</atc:cs_overout_colour>
+			<atc:cs_proposed_colour atc:blink="yes">#FF8000</atc:cs_proposed_colour>
+
+		</atc:param>
+
+		<!-- Map Definitions -->
+
+		<atc:map atc:idx='map001'>
+
+			<atc:region atc:y_dim='20' atc:y='-10' atc:x_dim='40' atc:x='-20' /> 
+
+			<!-- Location of points and routes of the map -->		
+			<atc:location atc:y='0' atc:x='-8' atc:visible='off' atc:idx='A' />
+			<atc:location atc:y='0'  atc:x='0' atc:visible='off' atc:idx='B' />
+			<atc:location atc:y='0'  atc:x='8' atc:visible='off' atc:idx='C' />
+			<atc:location atc:y='4'  atc:x='0' atc:visible='off' atc:idx='D' />
+            <atc:location atc:y='-4' atc:x='0' atc:visible='off' atc:idx='E' />
+            <atc:location atc:y='3' atc:x='-6' atc:visible='off' atc:idx='F' />
+            <atc:location atc:y='3'  atc:x='6' atc:visible='off' atc:idx='G' />
+
+			<!-- LLEGADAS -->							
+			<atc:route atc:idx='R1'>
+				<atc:pointref atc:location='A' />
+				<atc:pointref atc:location='B' />							
+				<atc:pointref atc:location='C' />							
+			</atc:route>		
+			<atc:route atc:idx='R2'>
+				<atc:pointref atc:location='D' />
+				<atc:pointref atc:location='B' />
+				<atc:pointref atc:location='E' />				
+			</atc:route>								
+
+			<!-- MI SECTOR -->
+			<atc:sector atc:status='active' atc:idx='ACTIVE'>
+				<atc:vertex atc:y='5' atc:x='-10' />
+				<atc:vertex atc:y='5' atc:x='10' />
+				<atc:vertex atc:y='-5' atc:x='10' />
+				<atc:vertex atc:y='-5' atc:x='-10' />
+			</atc:sector>
+
+		</atc:map>
+
+		<!--Practice Scenario -->
+
+		<atc:sky atc:idx='skyPRAC'>
+
+			<!-- Avion en ruta 1-->
+			<atc:aircraft atc:type='A320' atc:idx='DFG472'>
+				<atc:start>0</atc:start>
+				<atc:altitude>37000</atc:altitude>
+				<atc:velocity>500</atc:velocity>
+				<atc:flightpath>
+					<atc:point atc:y='0' atc:x='-8'>
+					</atc:point>
+					<atc:point atc:y='0' atc:x='0'/>
+					<atc:point atc:y='0' atc:x='8'/>
+				</atc:flightpath>
+			</atc:aircraft>	
+			
+			<atc:aircraft atc:type='A320' atc:idx='DFG473'>
+				<atc:start>60000</atc:start>
+				<atc:altitude>37000</atc:altitude>
+				<atc:velocity>500</atc:velocity>
+				<atc:flightpath>
+					<atc:point atc:y='0' atc:x='-8'>
+					</atc:point>
+					<atc:point atc:y='0' atc:x='0'/>
+					<atc:point atc:y='0' atc:x='8'/>
+				</atc:flightpath>
+			</atc:aircraft>	
+						
+
+			<!-- Avion en ruta 2-->
+			<atc:aircraft atc:type='A320' atc:idx='DFG474'>
+				<atc:start>0</atc:start>
+				<atc:altitude>37000</atc:altitude>
+				<atc:velocity>500</atc:velocity>
+				<atc:flightpath>
+					<atc:point atc:y='2' atc:x='0'>
+					</atc:point>
+					<atc:point atc:y='0' atc:x='0'/>
+					<atc:point atc:y='-4' atc:x='0'/>
+				</atc:flightpath>
+			</atc:aircraft>	
+			
+			<atc:aircraft atc:type='A320' atc:idx='DFG475'>
+				<atc:start>60000</atc:start>
+				<atc:altitude>37000</atc:altitude>
+				<atc:velocity>500</atc:velocity>
+				<atc:flightpath>
+					<atc:point atc:y='4' atc:x='0'>
+					</atc:point>
+					<atc:point atc:y='0' atc:x='0'/>
+					<atc:point atc:y='-4' atc:x='0'/>
+				</atc:flightpath>
+			</atc:aircraft>	
+						
+		</atc:sky>
+
+		<!-- User Interface Components -->
+
+		<!-- NONE -->
+
+	</atc:data>
+
+
+	<!--
+      ****************************************
+      ****  Experiment Presentation      *****
+      ****************************************
+ -->
+
+	<atc:presentation>
+
+		<!--
+        Initial Phase
+     -->
+		<atc:phase atc:idx='test-initial'>
+
+			<atc:trial atc:sky='skyPRAC' atc:param='default' atc:map='map001' atc:idx='GIPYM4'>
+				<atc:keyEvent>Space</atc:keyEvent>
+			</atc:trial>
+
+		</atc:phase>
+
+		<!-- Terminal Phase -->
+
+		<atc:phase atc:idx='test-terminate'>
+			<atc:instruction atc:idxref='thanks' />
+		</atc:phase>
+
+	</atc:presentation>
+
+</atc:experiment>

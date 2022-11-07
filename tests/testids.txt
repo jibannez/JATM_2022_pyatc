@@ -1,0 +1,26 @@
+T1:  Single aircraft
+
+T2:  Two aircraft, one en-route and other free, not crossing trajectories
+T3:  Two aircraft, one en-route and other free, crossing trajectories, no conflict
+T4:  Two aircraft, one en-route and other free, crossing trajectories, proximity
+T5:  Two aircraft, one en-route and other free, crossing trajectories, crash
+
+T6:  Two aircraft in two parallel routes
+
+T7:  Two aircraft in two perpendicular routes, no conflict
+T8:  Two aircraft in two perpendicular routes, proximity
+T9:  Two aircraft in two perpendicular routes, crash
+
+T10: Two aircraft in two oblique routes, no conflict
+T11: Two aircraft in two oblique routes, proximity
+T12: Two aircraft in two oblique routes, crash
+
+T13: Two aircraft in two merging routes (oblique by definition, no 90 degree turns), no conflict
+T14: Two aircraft in two merging routes, proximity on merging point
+T15: Two aircraft in two merging routes, crash on merging point
+T16: Two aircraft in two merging routes, crash on common segment
+
+Specific values of COMETA parameters are essential for these tests to make sense.
+In general, I reuse default values excep in the following cases:
+ - Time to compute conflict: 60 seconds
+ - Horizontal conflict distance: 2 nm
